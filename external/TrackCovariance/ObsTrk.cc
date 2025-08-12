@@ -212,14 +212,14 @@ TMatrixDSym ObsTrk::CovCalc(TVectorD gPar)
 {
 	//
 	// Check ranges
-	Double_t minPt = fGC->GetMinPt();
+	//Double_t minPt = fGC->GetMinPt();
 	//if (pt < minPt) std::cout << "Warning ObsTrk::GenToObsPar: pt " << pt << " is below grid range of " << minPt << std::endl;
-	Double_t maxPt = fGC->GetMaxPt();
+	//Double_t maxPt = fGC->GetMaxPt();
 	//if (pt > maxPt) std::cout << "Warning ObsTrk::GenToObsPar: pt " << pt << " is above grid range of " << maxPt << std::endl;
-	Double_t minAn = fGC->GetMinAng();
+	//Double_t minAn = fGC->GetMinAng();
 	//if (angd < minAn) std::cout << "Warning ObsTrk::GenToObsPar: angle " << angd
 	//	<< " is below grid range of " << minAn << std::endl;
-	Double_t maxAn = fGC->GetMaxAng();
+	//Double_t maxAn = fGC->GetMaxAng();
 	//if (angd > maxAn) std::cout << "Warning ObsTrk::GenToObsPar: angle " << angd
 	//	<< " is above grid range of " << maxAn << std::endl;
 	//
@@ -233,7 +233,7 @@ TMatrixDSym ObsTrk::CovCalc(TVectorD gPar)
 	Bool_t inside = TrkUtil::IsInside(fGenX, Rin, ZinNeg, ZinPos); // Check if in inner box
 	SolTrack* trk = new SolTrack(fGenX, fGenP, fG);
 	Double_t Xfirst, Yfirst, Zfirst;
-	Int_t iLay = trk->FirstHit(Xfirst, Yfirst, Zfirst);
+	/*Int_t iLay =*/ trk->FirstHit(Xfirst, Yfirst, Zfirst);
 	fXfirst = TVector3(Xfirst, Yfirst, Zfirst);
   //std::cout<<"obs trk: "<<Xfirst<<","<<Yfirst<<","<<Zfirst<<std::endl;
 

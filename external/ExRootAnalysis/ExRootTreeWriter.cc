@@ -67,15 +67,16 @@ void ExRootTreeWriter::Fill()
 
 //------------------------------------------------------------------------------
 
-void ExRootTreeWriter::Write()
+Int_t ExRootTreeWriter::Write(const char *, Int_t , Int_t )
 {
   fFile = fTree ? fTree->GetCurrentFile() : 0;
-  if(fFile) fFile->Write();
+  if(fFile) return fFile->Write();
+  return 0;
 }
 
 //------------------------------------------------------------------------------
 
-void ExRootTreeWriter::Clear()
+void ExRootTreeWriter::Clear(Option_t*)
 {
   set<ExRootTreeBranch *>::iterator itBranches;
   for(itBranches = fBranches.begin(); itBranches != fBranches.end(); ++itBranches)

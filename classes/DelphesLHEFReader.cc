@@ -108,7 +108,7 @@ void DelphesLHEFReader::SetInputFile(FILE *inputFile)
 
 //---------------------------------------------------------------------------
 
-void DelphesLHEFReader::Clear()
+void DelphesLHEFReader::Clear(Option_t*)
 {
   fEventReady = kFALSE;
   fEventCounter = -1;

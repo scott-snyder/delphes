@@ -3,6 +3,13 @@ cmake_minimum_required(VERSION 3.5...4.0)
 project(Delphes)
 
 add_compile_options(-fPIC -Wall -D_FILE_OFFSET_BITS=64 -DDROP_CGAL)
+# tcl vendored...
+set(CMAKE_C_FLAGS  "-Wno-old-style-definition -Wno-address -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-value")
+if(CMAKE_CXX_COMPILER_ID MATCHES "^(Apple)?Clang$")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-deprecated-non-prototype")
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-stringop-overflow ")
+endif()
 
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "" FORCE)
