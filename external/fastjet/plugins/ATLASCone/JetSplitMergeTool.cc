@@ -73,13 +73,10 @@ int JetSplitMergeTool::execute( jetcollection_t* theJets )
   jetcollection_t::iterator itrB = theJets->begin();
   jetcollection_t::iterator itrE = theJets->end(); 
 
-  double etot =0.;
   for (;itrB!=itrE;itrB++) {
     Jet* j = new Jet(); j->addJet(*itrB);
     m_ctr +=1;
     m_preJet.push_back(j);    
-
-    etot += j->e();    
   }
 
   /////////////////////

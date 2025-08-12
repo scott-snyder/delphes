@@ -291,7 +291,7 @@ Int_t SolTrack::FirstHit(Double_t &Xfirst, Double_t &Yfirst, Double_t &Zfirst)
 		Double_t *Zh = new Double_t[Nmh];
 		Double_t *dh = new Double_t[Nmh];
 		//
-		Int_t n = HitListXYZ(ih, Xh, Yh, Zh);
+		/*Int_t n =*/ HitListXYZ(ih, Xh, Yh, Zh);
 		//
 		for(Int_t i=0; i<Nmh; i++){
 			Double_t rr = TMath::Sqrt(Xh[i]*Xh[i]+Yh[i]*Yh[i]);	// Hit radius
@@ -330,9 +330,8 @@ TGraph *SolTrack::TrkPlot()
 	Double_t *zh = new Double_t[Nhit];		// z of hit
 	Double_t *rh = new Double_t[Nhit];		// r of hit
 	Int_t    *ih = new Int_t   [Nhit];		// true index of layer
-	Int_t kmh;								// Number of measurement layers hit
 	//
-	kmh = HitList(ih, rh, zh);				// hit layer list
+	HitList(ih, rh, zh);				// hit layer list
 	//for (Int_t j = 0; j < Nhit; j++) cout << "r = " << rh[j] << ", z = " << zh[j] << endl;
 	Double_t *dh = new Double_t[Nhit];		// Hit distance from origin
 	for(Int_t i=0; i<Nhit; i++)dh[i] = TMath::ASin(C() * TMath::Sqrt((rh[i] * rh[i] - D() * D()) / (1. + 2 * C() * D()))) / C();	// Arc length traveled;
@@ -370,7 +369,6 @@ TVectorD SolTrack::DpDthetaRphi(Double_t s)
 		//
 		Double_t pxi = pt()*TMath::Cos(s+phi0());
 		Double_t pyi = pt()*TMath::Sin(s+phi0());
-		Double_t pzi = pt()*ct();
 		//
 		DpDthR(0) = -pyi;
 		DpDthR(1) =  pxi;
@@ -424,9 +422,9 @@ void SolTrack::OldCovCalc(Bool_t Res, Bool_t MS)
 	Double_t *rhh = new Double_t[Nhit];		// r of hit
 	Double_t *dhh = new Double_t[Nhit];		// distance of hit from origin
 	Int_t    *ihh = new Int_t[Nhit];		// true index of layer
-	Int_t kmh;					// Number of measurement layers hit
+	//Int_t kmh;					// Number of measurement layers hit
 	//
-	kmh = HitList(ihh, rhh, zhh);			// hit layer list
+	/*kmh =*/ HitList(ihh, rhh, zhh);			// hit layer list
 	Int_t mTot = 0;					// Total number of measurements
 	for (Int_t i = 0; i < Nhit; i++)
 	{
@@ -739,9 +737,9 @@ void SolTrack::CovCalc(Bool_t Res, Bool_t MS)
 	Double_t *rhh = new Double_t[Nhit];		// r of hit
 	Double_t *dhh = new Double_t[Nhit];		// distance of hit from origin
 	Int_t    *ihh = new Int_t[Nhit];		// true index of layer
-	Int_t kmh;					// Number of measurement layers hit
+	//Int_t kmh;					// Number of measurement layers hit
 	//
-	kmh = HitList(ihh, rhh, zhh);			// hit layer list
+	//kmh = HitList(ihh, rhh, zhh);			// hit layer list
 	Int_t mTot = 0;					// Total number of measurements
 	for (Int_t i = 0; i < Nhit; i++)
 	{
@@ -773,10 +771,10 @@ void SolTrack::CovCalc(Bool_t Res, Bool_t MS)
 	//
 	// Store interdistances and multiple scattering angles
 	//
-	Double_t sn2t = 1.0 / (1.0 + ct()*ct());		//sin^2 theta of track
-	Double_t cs2t = 1.0 - sn2t;						//cos^2 theta
-	Double_t snt = TMath::Sqrt(sn2t);				// sin theta
-	Double_t cst = TMath::Sign(TMath::Sqrt(cs2t), ct());	//** cos theta
+	//Double_t sn2t = 1.0 / (1.0 + ct()*ct());		//sin^2 theta of track
+	//Double_t cs2t = 1.0 - sn2t;						//cos^2 theta
+	//Double_t snt = TMath::Sqrt(sn2t);				// sin theta
+	//Double_t cst = TMath::Sign(TMath::Sqrt(cs2t), ct());	//** cos theta
 	//
 	//**** TMatrixDSym dik(Nhit);	dik.Zero();		// Distances between layers
 	Double_t *thms = new Double_t[Nhit];	// Scattering angles/plane
@@ -795,7 +793,6 @@ void SolTrack::CovCalc(Bool_t Res, Bool_t MS)
 		TVector3 Ptot = Ptrack(tPar, 2*C()*dh[ii]);	// Momentum at layer
 		Double_t pxi = Ptot.X();
 		Double_t pyi = Ptot.Y();
-		Double_t pzi = Ptot.Z();
 		//
 		Double_t phi = phi0() + TMath::ASin(ArgRp); //Phi at layer
 		Double_t nx = TMath::Cos(phi);		// Barrel layer normal
@@ -943,15 +940,15 @@ void SolTrack::CovCalc(Bool_t Res, Bool_t MS)
 				for (Int_t kk = 0; kk <= ii; kk++)
 				{
 					Int_t k = ih[kk];				// True layer number
-					Int_t ktyp  = fG->lTyp(k);		// Layer type Barrel or disk
+					//Int_t ktyp  = fG->lTyp(k);		// Layer type Barrel or disk
 					Int_t nmeak = fG->lND (k);		// # measurements in layer
 					if (fG->isMeasure(k))
 					{
 						for (Int_t nmk = 0; nmk < nmeak; nmk++)
 						{
-							Double_t strk = 0;
-							if (nmk + 1 == 1) strk = fG->lStU(k);	// Stereo angle upper
-							if (nmk + 1 == 2) strk = fG->lStL(k);	// Stereo angle lower
+							//Double_t strk = 0;
+							//if (nmk + 1 == 1) strk = fG->lStU(k);	// Stereo angle upper
+							//if (nmk + 1 == 2) strk = fG->lStL(k);	// Stereo angle lower
 							if (im == km && Res) Sm(im, km) += sig*sig;	//** Detector resolution on diagonal
 							//
 							// Loop on all layers below for MS contributions
@@ -1095,12 +1092,10 @@ void SolTrack::KalmanCov(Bool_t Res, Bool_t MS, Double_t mass)
 	Double_t *adhh = new Double_t[Nhit];	// Absolute value of phase
 	Int_t    *ihh = new Int_t[Nhit];		// true index of layer
 	//** added protection for derivative explosion
-	Double_t CosMin = TMath::Sin(TMath::Pi() / 9.);	//** Protect for derivative explosion
 	Double_t* cs = new Double_t[Nhit];		//** Cosine of angle with normal in transverse plane
 	//**
-	Int_t mTot;					// Number of measurement layers hit
 	//
-	mTot = HitList(ihh, rhh, phh, zhh);		// hit layer list
+	HitList(ihh, rhh, phh, zhh);		// hit layer list
 	// Store phases
 	for(Int_t i = 0; i < Nhit; i++){
 		if(TMath::Abs(ct()) > 1.0e-3) dhh[i] = 2*C()*(zhh[i]-z0())/ct();
@@ -1205,7 +1200,6 @@ void SolTrack::KalmanCov(Bool_t Res, Bool_t MS, Double_t mass)
 			Double_t sig = 0;		// Resolution
 			Double_t csa = 0;		// Cosine stereo angle
 			Double_t ssa = 0;		// Sine stereo angle
-			Double_t sg;			//** protected resolution
 			TVectorD Rm(5); 		// Measurement derivative
 			//
 			// Barrel type layer
@@ -1392,9 +1386,7 @@ TMatrixD SolTrack::DparDp(TVector3 xv, TVector3 pv)
 	// Track parameters
 	TVectorD Par(5,fpar);	
 	//
-	Double_t D = Par(0);
 	Double_t ph0 = Par(1);
-	Double_t lm = Par(4);
 	//
 	// Derivative matrix
 	TMatrixD dParP(5, 3); dParP.Zero();
@@ -1414,8 +1406,8 @@ TMatrixD SolTrack::DparDp(TVector3 xv, TVector3 pv)
 		// D derivatives
 		for (Int_t i = 0; i < 2; i++)dParP(0, i) = (dTdp(i) - pv(i) / pt) / a;
 		// Phi0 derivatives
-		Double_t tgp = TMath::Tan(ph0);
-		Double_t cs2 = pow(TMath::Cos(ph0), 2);
+		//Double_t tgp = TMath::Tan(ph0);
+		//Double_t cs2 = pow(TMath::Cos(ph0), 2);
 		//dParP(1, 0) = -tgp * cs2 / (pv.X() + a * xv.Y());
 		//dParP(1, 1) = cs2 / (pv.X() + a * xv.Y());
 		dParP(1, 0) = (-pv.Y() + a * xv.X())/(T*T);

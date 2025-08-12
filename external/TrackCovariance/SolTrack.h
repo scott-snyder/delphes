@@ -20,7 +20,6 @@ class SolTrack: public TrkUtil
 	// Assume tracks originate from (0,0) for the time being
 	//
 private:
-	Int_t fNl;	// Actual number of layers
 	SolGeom *fG;	// Geometry
 	Double_t fp[3];	// px, py, pz momentum 
 	Double_t fx[3];	//  x,  y,  z track origin 
