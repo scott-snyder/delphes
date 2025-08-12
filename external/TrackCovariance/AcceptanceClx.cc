@@ -198,8 +198,8 @@ AcceptanceClx::AcceptanceClx(SolGeom* InGeo)
 	//
 		std::cout << "AcceptanceClx:: Acceptance encoding with " << fNPtNodes
 		<<" pt nodes and "<< fNThNodes <<" theta nodes"<< std::endl;
-	Int_t Nrows = fAcc.GetNrows();
-	Int_t Ncols = fAcc.GetNcols();
+        //Int_t Nrows = fAcc.GetNrows();
+	//Int_t Ncols = fAcc.GetNcols();
 }
 
 // Destructor

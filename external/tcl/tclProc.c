@@ -4,7 +4,7 @@
  *	This file contains routines that implement Tcl procedures,
  *	including the "proc" and "uplevel" commands.
  *
- * Copyright (c) 1987-1993 The Regents of the University of California.
+ * Copyright (c) 1987-1993, 2025 The Regents of the University of California.
  * Copyright (c) 1994-1996 Sun Microsystems, Inc.
  *
  * See the file "license.terms" for information on usage and redistribution
@@ -185,7 +185,7 @@ TclCreateProc(interp, nsPtr, procName, argsPtr, bodyPtr, procPtrPtr)
     register Proc *procPtr;
     int i, length, result, numArgs;
     char *args, *bytes, *p;
-    register CompiledLocal *localPtr;
+    register CompiledLocal *localPtr = NULL;
     Tcl_Obj *defPtr;
     int precompiled = 0;
     
@@ -827,8 +827,8 @@ TclObjInterpProc(clientData, interp, objc, objv)
     CallFrame frame;
     register CallFrame *framePtr = &frame;
     register CompiledLocal *localPtr;
-    char *procName, *bytes;
-    int nameLen, localCt, numArgs, argCt, length, i, result;
+    char *procName/*, *bytes*/;
+    int nameLen, localCt, numArgs, argCt, /*length,*/ i, result;
     Var *varPtr;
 
     /*
