@@ -4,7 +4,7 @@
 // This file is part of the SISCone project.                                 //
 // For more details, see http://projects.hepforge.org/siscone                //
 //                                                                           //
-// Copyright (c) 2006 Gavin Salam and Gregory Soyez                          //
+// Copyright (c) 2006, 2025 Gavin Salam and Gregory Soyez                          //
 //                                                                           //
 // This program is free software; you can redistribute it and/or modify      //
 // it under the terms of the GNU General Public License as published by      //
@@ -750,7 +750,7 @@ int Csplit_merge::perform(double overlap_tshold, double ptmin){
       // browse for the second jet
       j2 = j1;
       j2++;
-      int j2_relindex = 1; // used only in ifdef, but costs little so keep it outside
+      [[maybe_unused]] int j2_relindex = 1; // used only in ifdef, but costs little so keep it outside
 
       while (j2 != candidates->end()){
 #ifdef DEBUG_SPLIT_MERGE

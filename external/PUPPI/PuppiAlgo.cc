@@ -68,9 +68,9 @@ void PuppiAlgo::reset() {
 }
 void PuppiAlgo::add(const fastjet::PseudoJet &iParticle,const double &iVal,const unsigned int iAlgo) { 
   if(iParticle.pt() < fRMSPtMin[iAlgo]) return;
-  if(fCharged[iAlgo] && fabs(iParticle.user_index())  < 1) return;
-  if(fCharged[iAlgo] && (fabs(iParticle.user_index()) >=1 && fabs(iParticle.user_index()) <=2)) fPupsPV.push_back(iVal);
-  if(fCharged[iAlgo] && fabs(iParticle.user_index()) < 3) return;
+  if(fCharged[iAlgo] && std::abs(iParticle.user_index())  < 1) return;
+  if(fCharged[iAlgo] && (std::abs(iParticle.user_index()) >=1 && std::abs(iParticle.user_index()) <=2)) fPupsPV.push_back(iVal);
+  if(fCharged[iAlgo] && std::abs(iParticle.user_index()) < 3) return;
   fPups.push_back(iVal);
   fNCount[iAlgo]++;
   /* eta extrap (cmssw version)

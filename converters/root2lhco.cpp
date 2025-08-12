@@ -1,6 +1,6 @@
 /*
  *  Delphes: a framework for fast simulation of a generic collider experiment
- *  Copyright (C) 2012-2014  Universite catholique de Louvain (UCL), Belgium
+ *  Copyright (C) 2012-2014, 2025  Universite catholique de Louvain (UCL), Belgium
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -82,8 +82,6 @@ private:
   Int_t fIntParam[kIntParamSize];
   Double_t fDblParam[kDblParamSize];
 
-  Long64_t fTriggerWord, fEventNumber;
-
   ExRootTreeReader *fTreeReader;
   FILE *fOutputFile;
 
@@ -110,7 +108,7 @@ private:
 //------------------------------------------------------------------------------
 
 LHCOWriter::LHCOWriter(ExRootTreeReader *treeReader, FILE *outputFile, string jetBranchName) :
-  fTriggerWord(0), fEventNumber(1), fTreeReader(0), fOutputFile(0),
+  fTreeReader(0), fOutputFile(0),
   fBranchEvent(0), fBranchTrack(0), fBranchTower(0), fBranchPhoton(0),
   fBranchElectron(0), fBranchMuon(0), fBranchJet(0), fBranchMissingET(0)
 {
@@ -339,7 +337,7 @@ void LHCOWriter::AnalyseMuons()
 void LHCOWriter::AnalyseTauJets()
 {
   Jet *element;
-  Track *track;
+  //Track *track;
   Int_t counter;
 
   fItJet->Reset();

@@ -8,7 +8,7 @@
 //
 //  FastJet is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation; either version 2 of the License, or
+//  the Free Software Foundation; either version 3 of the License, or
 //  (at your option) any later version.
 //
 //  The algorithms that underlie FastJet have required considerable
@@ -138,6 +138,7 @@ void ClusterSequence::_delaunay_cluster () {
       // need to "prime" the validity of jet_j in such a way that 
       // if it corresponds to the beam then it is automatically valid.
       recombine_with_beam = (jet_j == BeamJet);
+      if (!DNN) std::abort();
       if (!recombine_with_beam) {Valid2 = DNN->Valid(jet_j);} 
       else {Valid2 = true;}
       if (verbose) cout << "CS_Delaunay validities i & j: " << DNN->Valid(jet_i) << " " << Valid2 << endl;
