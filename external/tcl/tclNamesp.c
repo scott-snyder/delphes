@@ -7,7 +7,7 @@
  *      children of the global namespace. These other namespaces contain
  *      special-purpose commands and variables for packages.
  *
- * Copyright (c) 1993-1997 Lucent Technologies.
+ * Copyright (c) 1993-1997, 2025 Lucent Technologies.
  * Copyright (c) 1997 Sun Microsystems, Inc.
  * Copyright (c) 1998-1999 by Scriptics Corporation.
  *
@@ -2635,7 +2635,7 @@ NamespaceCodeCmd(dummy, interp, objc, objv)
     arg = Tcl_GetStringFromObj(objv[2], &length);
     if ((*arg == 'n') && (length > 17)
 	    && (strncmp(arg, "namespace", 9) == 0)) {
-	for (p = (arg + 9);  (*p == ' ');  p++) {
+	for (p = (arg + 9);  *p == ' ';  p++) {
 	    /* empty body: skip over spaces */
 	}
 	if ((*p == 'i') && ((p + 7) <= (arg + length))

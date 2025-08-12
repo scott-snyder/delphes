@@ -1,6 +1,6 @@
 /*
  *  Delphes: a framework for fast simulation of a generic collider experiment
- *  Copyright (C) 2012-2014  Universite catholique de Louvain (UCL), Belgium
+ *  Copyright (C) 2012-2014, 2025  Universite catholique de Louvain (UCL), Belgium
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -53,7 +53,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-  char *appName = "Example1";
+  std::string appName = "Example1";
 
   if(argc != 2)
   {
@@ -65,8 +65,8 @@ int main(int argc, char *argv[])
   gROOT->SetBatch();
 
   int appargc = 1;
-  char *appargv[] = {appName};
-  TApplication app(appName, &appargc, appargv);
+  char *appargv[] = {appName.data()};
+  TApplication app(appName.data(), &appargc, appargv);
 
   TString inputFile(argv[1]);
 
