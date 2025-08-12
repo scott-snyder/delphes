@@ -274,7 +274,7 @@ void FastJetFinder::Init()
       entry.estimator = make_unique<JetMedianBackgroundEstimator>(SelectorRapRange(etaMin, etaMax), *fDefinition, *fAreaDefinition);
       entry.etaMin = etaMin;
       entry.etaMax = etaMax;
-      fEstimators.push_back(move(entry));
+      fEstimators.push_back(std::move(entry));
     }
   }
 

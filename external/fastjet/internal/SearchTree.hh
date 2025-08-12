@@ -8,7 +8,7 @@
 //
 //  FastJet is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation; either version 2 of the License, or
+//  the Free Software Foundation; either version 3 of the License, or
 //  (at your option) any later version.
 //
 //  The algorithms that underlie FastJet have required considerable
@@ -666,8 +666,8 @@ template<class T> void SearchTree<T>::verify_structure_linear() const {
 
   //print_elements();
 
-  unsigned n_top = 0;
-  unsigned n_null = 0;
+  [[maybe_unused]] unsigned n_top = 0;
+  [[maybe_unused]] unsigned n_null = 0;
   for(unsigned i = 0; i < _nodes.size(); i++) {
     const typename SearchTree<T>::Node * node = &(_nodes[i]);
     // make sure node is defined

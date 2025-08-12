@@ -82,7 +82,7 @@ void IdentificationMap::Init()
     formula = make_unique<DelphesFormula>();
     formula->Compile(param[i * 3 + 2].GetString());
     pdg = param[i * 3].GetInt();
-    fEfficiencyMap.insert(make_pair(pdg, make_pair(param[i * 3 + 1].GetInt(), move(formula))));
+    fEfficiencyMap.insert(make_pair(pdg, make_pair(param[i * 3 + 1].GetInt(), std::move(formula))));
   }
 
   // set default efficiency formula
@@ -92,7 +92,7 @@ void IdentificationMap::Init()
     formula = make_unique<DelphesFormula>();
     formula->Compile("1.0");
 
-    fEfficiencyMap.insert(make_pair(0, make_pair(0, move(formula))));
+    fEfficiencyMap.insert(make_pair(0, make_pair(0, std::move(formula))));
   }
 
   // import input array

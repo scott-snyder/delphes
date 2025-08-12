@@ -89,7 +89,7 @@ void JetFakeParticle::Init()
       throw runtime_error("Jets can only fake into electrons, muons or photons. Other particles are not authorized.");
     }
 
-    fEfficiencyMap[param[i * 2].GetInt()] = move(formula);
+    fEfficiencyMap[param[i * 2].GetInt()] = std::move(formula);
   }
 
   // set default efficiency formula
@@ -99,7 +99,7 @@ void JetFakeParticle::Init()
     formula = make_unique<DelphesFormula>();
     formula->Compile("0.0");
 
-    fEfficiencyMap[0] = move(formula);
+    fEfficiencyMap[0] = std::move(formula);
   }
 
   // import input array
