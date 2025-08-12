@@ -5,7 +5,7 @@
  *	including interpreter creation and deletion, command creation
  *	and deletion, and command parsing and execution.
  *
- * Copyright (c) 1987-1994 The Regents of the University of California.
+ * Copyright (c) 1987-1994, 2025 The Regents of the University of California.
  * Copyright (c) 1994-1997 Sun Microsystems, Inc.
  * Copyright (c) 1998-1999 by Scriptics Corporation.
  *
@@ -2209,7 +2209,7 @@ Tcl_EvalObj(interp, objPtr)
     int flags;				/* Interp->evalFlags value when the
 					 * procedure was called. */
     register ByteCode* codePtr;		/* Tcl Internal type of bytecode. */
-    int oldCount = iPtr->cmdCount;	/* Used to tell whether any commands
+    /*int oldCount = iPtr->cmdCount;*/	/* Used to tell whether any commands
 					 * at all were executed. */
     int numSrcChars;
     register int result;

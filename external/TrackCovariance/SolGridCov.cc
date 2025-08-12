@@ -47,7 +47,7 @@ void SolGridCov::Calc(SolGeom *G)
   Bool_t Res = kTRUE; Bool_t MS = kTRUE; // Resolution and multiple scattering flags
   for (Int_t ip = 0; ip < fNpt; ip++) // Loop on pt grid
   {
-    Int_t ipt = TMath::Nint(10 * pta(ip));
+    //Int_t ipt = TMath::Nint(10 * pta(ip));
     for (Int_t ia = 0; ia < fNang; ia++) // Loop on angle grid
     {
       Double_t th = TMath::Pi() * (anga(ia)) / 180.;

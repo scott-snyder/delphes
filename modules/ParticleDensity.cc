@@ -1,6 +1,6 @@
 /*
  *  Delphes: a framework for fast simulation of a generic collider experiment
- *  Copyright (C) 2012-2014  Universite catholique de Louvain (UCL), Belgium
+ *  Copyright (C) 2012-2014, 2025  Universite catholique de Louvain (UCL), Belgium
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -80,7 +80,7 @@ void ParticleDensity::Init()
   ExRootConfParam paramEta = GetParam("EtaBins");
   const Long_t sizeEta = paramEta.GetSize();
   Int_t nbinsEta = sizeEta - 1;
-  Float_t binsEta[sizeEta];
+  std::vector<Float_t> binsEta(sizeEta);
   for (Int_t i = 0; i < sizeEta; ++i) {
     binsEta[i] = paramEta[i].GetDouble();
   }
@@ -88,12 +88,12 @@ void ParticleDensity::Init()
   ExRootConfParam paramPhi = GetParam("PhiBins");
   const Long_t sizePhi = paramPhi.GetSize();
   Int_t nbinsPhi = sizePhi - 1;
-  Float_t binsPhi[sizePhi];
+  std::vector<Float_t> binsPhi(sizePhi);
   for (Int_t i = 0; i < sizePhi; ++i) {
     binsPhi[i] = paramPhi[i].GetDouble();
   }
   
-  fHisto = new TH2F("hParticleDensity", ";#eta;#varphi;d^{2}N/d#etad#varphi", nbinsEta, binsEta, nbinsPhi, binsPhi);
+  fHisto = new TH2F("hParticleDensity", ";#eta;#varphi;d^{2}N/d#etad#varphi", nbinsEta, binsEta.data(), nbinsPhi, binsPhi.data());
 
   fUseMomentumVector = GetBool("UseMomentumVector", false);
 }

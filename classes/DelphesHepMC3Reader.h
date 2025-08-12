@@ -1,6 +1,6 @@
 /*
  *  Delphes: a framework for fast simulation of a generic collider experiment
- *  Copyright (C) 2012-2021  Universite catholique de Louvain (UCL), Belgium
+ *  Copyright (C) 2012-2025  Universite catholique de Louvain (UCL), Belgium
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -76,7 +76,7 @@ private:
 
   TDatabasePDG *fPDG;
 
-  int fEventNumber, fMPI, fProcessID, fSignalCode, fVertexCounter, fParticleCounter;
+  int fEventNumber, fMPI, fProcessID, fVertexCounter, fParticleCounter;
   double fScale, fAlphaQCD, fAlphaQED;
 
   double fMomentumCoefficient, fPositionCoefficient;
