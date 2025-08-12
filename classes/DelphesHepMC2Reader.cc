@@ -104,7 +104,7 @@ void DelphesHepMC2Reader::SetInputFile(FILE *inputFile)
 
 //---------------------------------------------------------------------------
 
-void DelphesHepMC2Reader::Clear()
+void DelphesHepMC2Reader::Clear(Option_t*)
 {
   fStateSize = 0;
   fState.clear();

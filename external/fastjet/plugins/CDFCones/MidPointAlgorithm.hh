@@ -80,7 +80,7 @@ class MidPointAlgorithm
   {}
   void findStableConesFromSeeds(std::vector<PhysicsTower>& particles, std::vector<Cluster>& stableCones);
   void findStableConesFromMidPoints(std::vector<PhysicsTower>& particles, std::vector<Cluster>& stableCones);
-  void iterateCone(volatile double startRapidity, volatile double startPhi, volatile double startPt, std::vector<PhysicsTower>& particles,
+  void iterateCone(/*volatile*/ double startRapidity, /*volatile*/ double startPhi, /*volatile*/ double startPt, std::vector<PhysicsTower>& particles,
 		   std::vector<Cluster>& stableCones, bool reduceConeSize);
   void addClustersToPairs(std::vector<int>& testPair, std::vector< std::vector<int> >& pairs,
 			  std::vector< std::vector<bool> >& distanceOK, int maxClustersInPair);

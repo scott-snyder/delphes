@@ -49,7 +49,7 @@ class CalTower
  public:
 
   double Et,eta,phi;
-  int iEta,iPhi;
+  int iEta=0,iPhi=0;
 
   CalTower(): Et(0), eta(0), phi(0), iEta(-1), iPhi(-1) {}
   CalTower(double Et0, double eta0, double phi0): Et(Et0), eta(eta0), phi(phi0)
