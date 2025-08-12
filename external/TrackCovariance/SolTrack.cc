@@ -248,7 +248,7 @@ Int_t SolTrack::FirstHit(Double_t &Xfirst, Double_t &Yfirst, Double_t &Zfirst)
 		Double_t *Zh = new Double_t[Nmh];
 		Double_t *dh = new Double_t[Nmh];
 		//
-		Int_t n = HitListXYZ(ih, Xh, Yh, Zh);
+		/*Int_t n =*/ HitListXYZ(ih, Xh, Yh, Zh);
 		//
 		for(Int_t i=0; i<Nmh; i++){
 			Double_t rr = TMath::Sqrt(Xh[i]*Xh[i]+Yh[i]*Yh[i]);	// Hit radius
@@ -287,9 +287,9 @@ TGraph *SolTrack::TrkPlot()
 	Double_t *zh = new Double_t[Nhit];		// z of hit
 	Double_t *rh = new Double_t[Nhit];		// r of hit
 	Int_t    *ih = new Int_t   [Nhit];		// true index of layer
-	Int_t kmh;								// Number of measurement layers hit
+	//Int_t kmh;								// Number of measurement layers hit
 	//
-	kmh = HitList(ih, rh, zh);				// hit layer list
+	/*kmh =*/ HitList(ih, rh, zh);				// hit layer list
 	//for (Int_t j = 0; j < Nhit; j++) cout << "r = " << rh[j] << ", z = " << zh[j] << endl;
 	Double_t *dh = new Double_t[Nhit];		// Hit distance from origin
 	for(Int_t i=0; i<Nhit; i++)dh[i] = TMath::ASin(C() * TMath::Sqrt((rh[i] * rh[i] - D() * D()) / (1. + 2 * C() * D()))) / C();	// Arc length traveled;
@@ -346,9 +346,9 @@ void SolTrack::CovCalc(Bool_t Res, Bool_t MS)
 	Double_t *rhh = new Double_t[Nhit];		// r of hit
 	Double_t *dhh = new Double_t[Nhit];		// distance of hit from origin
 	Int_t    *ihh = new Int_t[Nhit];		// true index of layer
-	Int_t kmh;					// Number of measurement layers hit
+	//Int_t kmh;					// Number of measurement layers hit
 	//
-	kmh = HitList(ihh, rhh, zhh);			// hit layer list
+	/*kmh =*/ HitList(ihh, rhh, zhh);			// hit layer list
 	Int_t mTot = 0;					// Total number of measurements
 	for (Int_t i = 0; i < Nhit; i++)
 	{

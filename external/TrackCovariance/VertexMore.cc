@@ -118,9 +118,9 @@ TMatrixD VertexMore::dPdX(Int_t i)	// ***** NOT USED *****
 	TVectorD par = fV->GetNewPar(i);
 	TVectorD xv = fV->GetVtx();
 	//
-	Double_t C = par(2);
-	Double_t z_0 = par(3);
-	Double_t lm = par(4);
+	//Double_t C = par(2);
+	//Double_t z_0 = par(3);
+	//Double_t lm = par(4);
 	//
 	TVector3 p = GetMomentum(i);
 	//
@@ -143,7 +143,7 @@ TMatrixD VertexMore::dPdAlf(Int_t i)
 	TVectorD par = fV->GetNewPar(i);
 	TVectorD xv = fV->GetVtx();
 	Double_t ph0 = par(1);
-	Double_t z_0 = par(3);
+	//Double_t z_0 = par(3);
 	Double_t lm = par(4);
 	
 	TVector3 p = GetMomentum(i); 
@@ -195,13 +195,13 @@ TMatrixD VertexMore::dXdAlf(Int_t i)		// *** NOT USED ***
 {
 	TMatrixD dXdPar(5, 3); dXdPar.Zero();
 	TVectorD xv = fV->GetVtx();
-	Double_t R2 = xv(0)*xv(0)+xv(1)*xv(1);
+	//Double_t R2 = xv(0)*xv(0)+xv(1)*xv(1);
 	TVectorD par = fV->GetNewPar(i);
 	Double_t D = par(0);
 	Double_t ph = par(1);
 	Double_t sf = TMath::Sin(ph);
 	Double_t cf = TMath::Cos(ph);
-	Double_t z0 = par(3);
+	//Double_t z0 = par(3);
 	Double_t ct = par(4);
 
 	if(fV->IsCharged(i)){			// Charged
@@ -211,7 +211,7 @@ TMatrixD VertexMore::dXdAlf(Int_t i)		// *** NOT USED ***
 		//
 		TVectorD dsdpr = dsdPar(xv, par);
 		Double_t sd = dsdpr(0);
-		Double_t sp0= dsdpr(1);
+		//Double_t sp0= dsdpr(1);
 		Double_t sc = dsdpr(2);
 		//
 		Double_t sfs= TMath::Sin(s+ph);
@@ -322,7 +322,7 @@ void VertexMore::CalcParCov()
 		TVectorD par = fV->GetNewPar(i);
 		//Double_t D = par(0);
 		Double_t ph0 = par(1);
-		Double_t z_0 = par(3);
+		//Double_t z_0 = par(3);
 		Double_t lm = par(4);
 		//
 		Double_t Q = 0.;
@@ -455,7 +455,7 @@ TMatrixD VertexMore::DparDx(TVector3 xv, TVector3 pv, Double_t Q)
 	else Par = XPtoPar_N(xv, pv);		// Neutral
 		
 	//
-	Double_t D = Par(0);
+	//Double_t D = Par(0);
 	Double_t ph0 = Par(1);
 	Double_t lm = Par(4);
 	//
@@ -485,11 +485,11 @@ TMatrixD VertexMore::DparDx(TVector3 xv, TVector3 pv, Double_t Q)
 		dParX(3, 2) = 1.0;
 	}
 	else{
-		Double_t pt = Par(2);
+                //Double_t pt = Par(2);
 		// D derivatives
 		Double_t cs = TMath::Cos(ph0);
 		Double_t sn = TMath::Sin(ph0);
-		Double_t s = xv.Y()*sn+xv.X()*cs;
+		//Double_t s = xv.Y()*sn+xv.X()*cs;
 		//std::cout<<"dParX calc: sn= "<<sn<<", pt= "<<pt<<", D= "<<D<<", s= "<<s<<std::endl;
 		dParX(0,0) = -sn;	// x
 		dParX(0,1) =  cs;	// y
