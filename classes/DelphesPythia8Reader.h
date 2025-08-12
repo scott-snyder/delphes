@@ -59,7 +59,7 @@ public:
   bool ReadLHEF();
   std::string FileNameLHEF();
 
-  void Clear();
+  virtual void Clear(Option_t* = "");
   bool EventReady();
 
   int EventNumber();
