@@ -91,8 +91,8 @@ class puppiAlgoBin {
       }
 
       // zero are neutral particle, 1 LV charged, 2PU      
-      if(fUseCharged_ && (fabs(puppiParticles.at(iPart).fParticleId_) >=0 && fabs(puppiParticles.at(iPart).fParticleId_) <=1)) fPuppiParticlesPV_.push_back(puppiParticles.at(iPart));
-      if(fUseCharged_ && fabs(puppiParticles.at(iPart).fParticleId_) < 2) continue;
+      if(fUseCharged_ && (std::abs(puppiParticles.at(iPart).fParticleId_) >=0 && std::abs(puppiParticles.at(iPart).fParticleId_) <=1)) fPuppiParticlesPV_.push_back(puppiParticles.at(iPart));
+      if(fUseCharged_ && std::abs(puppiParticles.at(iPart).fParticleId_) < 2) continue;
       fPuppiParticlesPU_.push_back(puppiParticles.at(iPart));
     }
   };

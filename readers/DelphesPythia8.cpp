@@ -1,6 +1,6 @@
 /*
  *  Delphes: a framework for fast simulation of a generic collider experiment
- *  Copyright (C) 2012-2014  Universite catholique de Louvain (UCL), Belgium
+ *  Copyright (C) 2012-2014, 2025  Universite catholique de Louvain (UCL), Belgium
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -415,7 +415,7 @@ int main(int argc, char *argv[])
 
 #if PYTHIA_VERSION_INTEGER > 8300
       // fill Pythia8 Weights - see https://pythia.org/latest-manual/CrossSectionsAndWeights.html
-      for(int iWeight = 0; iWeight < pythia->info.weightNameVector().size(); ++iWeight)
+      for(int iWeight = 0; iWeight < static_cast<int>(pythia->info.weightNameVector().size()); ++iWeight)
       {
         Weight *weight;
         weight = static_cast<Weight *>(branchWeight->NewEntry());
