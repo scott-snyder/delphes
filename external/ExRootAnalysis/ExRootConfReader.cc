@@ -32,8 +32,10 @@ ExRootConfReader::ExRootConfReader() :
 {
   fTclInterp = Tcl_CreateInterp();
 
-  Tcl_CreateObjCommand(fTclInterp, "module", ModuleObjCmdProc, this, 0);
-  Tcl_CreateObjCommand(fTclInterp, "source", SourceObjCmdProc, this, 0);
+  std::string module_ = "module";
+  Tcl_CreateObjCommand(fTclInterp, module_.data(), ModuleObjCmdProc, this, 0);
+  std::string source = "source";
+  Tcl_CreateObjCommand(fTclInterp, source.data(), SourceObjCmdProc, this, 0);
 }
 
 //------------------------------------------------------------------------------
@@ -192,7 +194,8 @@ int ModuleObjCmdProc(ClientData clientData, Tcl_Interp *interp, int objc, Tcl_Ob
 
   if(objc < 3)
   {
-    Tcl_WrongNumArgs(interp, 1, objv, "className moduleName ?arg...?");
+    std::string msg = "className moduleName ?arg...?";
+    Tcl_WrongNumArgs(interp, 1, objv, msg.data());
     return TCL_ERROR;
   }
 
@@ -203,8 +206,10 @@ int ModuleObjCmdProc(ClientData clientData, Tcl_Interp *interp, int objc, Tcl_Ob
   if(objc > 3)
   {
     Tcl_Obj *object = Tcl_NewListObj(0, 0);
-    Tcl_ListObjAppendElement(interp, object, Tcl_NewStringObj("namespace", -1));
-    Tcl_ListObjAppendElement(interp, object, Tcl_NewStringObj("eval", -1));
+    std::string ns = "namespace";
+    Tcl_ListObjAppendElement(interp, object, Tcl_NewStringObj(ns.data(), -1));
+    std::string eval = "eval";
+    Tcl_ListObjAppendElement(interp, object, Tcl_NewStringObj(eval.data(), -1));
     Tcl_ListObjAppendList(interp, object, Tcl_NewListObj(objc - 2, objv + 2));
 
     return Tcl_GlobalEvalObj(interp, object);
@@ -222,7 +227,8 @@ int SourceObjCmdProc(ClientData clientData, Tcl_Interp *interp, int objc, Tcl_Ob
 
   if(objc != 2)
   {
-    Tcl_WrongNumArgs(interp, 1, objv, "fileName");
+    std::string fileName = "fileName";
+    Tcl_WrongNumArgs(interp, 1, objv, fileName.data());
     return TCL_ERROR;
   }
 
