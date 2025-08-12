@@ -4,7 +4,7 @@
  *	This file contains procedures that execute byte-compiled Tcl
  *	commands.
  *
- * Copyright (c) 1996-1997 Sun Microsystems, Inc.
+ * Copyright (c) 1996-1997, 2025 Sun Microsystems, Inc.
  *
  * See the file "license.terms" for information on usage and redistribution
  * of this file, and for a DISCLAIMER OF ALL WARRANTIES.
@@ -187,7 +187,7 @@ static void		IllegalExprOperandType _ANSI_ARGS_((
 			    Tcl_Obj *opndPtr));
 static void		InitByteCodeExecution _ANSI_ARGS_((
 			    Tcl_Interp *interp));
-static void		PrintByteCodeInfo _ANSI_ARGS_((ByteCode *codePtr));
+//static void		PrintByteCodeInfo _ANSI_ARGS_((ByteCode *codePtr));
 static void		RecordTracebackInfo _ANSI_ARGS_((Tcl_Interp *interp,
 			    unsigned char *pc, ByteCode *codePtr));
 static int		SetCmdNameFromAny _ANSI_ARGS_((Tcl_Interp *interp,
