@@ -272,7 +272,7 @@ InitByteCodeExecution(interp)
     
     Tcl_RegisterObjType(&tclCmdNameType);
 
-    (VOID *) memset(opName, 0, sizeof(opName));
+    (VOID) memset(opName, 0, sizeof(opName));
     for (i = 0;  instructionTable[i].name != NULL;  i++) {
 	opName[i] = instructionTable[i].name;
     }
@@ -2098,7 +2098,7 @@ TclExecuteByteCode(interp, codePtr)
 		double d;
 		char *s;
 		Tcl_ObjType *tPtr;
-		int converted, shared;
+		[[maybe_unused]] int converted, shared;
 
 		valuePtr = stackPtr[stackTop].o;
 		tPtr = valuePtr->typePtr;
@@ -2158,8 +2158,8 @@ TclExecuteByteCode(interp, codePtr)
 			    goto checkForCatch;
 			}
 		    }
-		    shared = shared;		/* lint, shared not used. */
-		    converted = converted;	/* lint, converted not used. */
+		    //shared = shared;		/* lint, shared not used. */
+		    //converted = converted;	/* lint, converted not used. */
 		}
 	    }
 	    ADJUST_PC(1);
