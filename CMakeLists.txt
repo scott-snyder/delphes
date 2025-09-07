@@ -7,6 +7,8 @@ add_compile_options(-fPIC -Wall -D_FILE_OFFSET_BITS=64 -DDROP_CGAL)
 set(CMAKE_C_FLAGS  "-Wno-old-style-definition -Wno-address -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-value")
 if(CMAKE_CXX_COMPILER_ID MATCHES "^(Apple)?Clang$")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-deprecated-non-prototype")
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-stringop-overflow ")
 endif()
 
 # Set the runtime path of the libraries by default but allow to switch it off:
