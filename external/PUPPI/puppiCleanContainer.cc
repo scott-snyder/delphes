@@ -77,8 +77,6 @@ std::vector<fastjet::PseudoJet> puppiCleanContainer::puppiEvent(){
       getRMSAvg(iPuppiAlgo,fPFParticles_,fChargedPV_); // give all the particles in the event and the charged one
     }
   
-    int npart = 0;  
-
     // Loop on all the incoming particles
     for(size_t iPart = 0; iPart < fPFParticles_.size(); iPart++) {
 
@@ -223,8 +221,6 @@ std::vector<fastjet::PseudoJet> puppiCleanContainer::puppiEvent(){
 
       //Now get rid of the thrown out weights for the particle collection
       if(pWeight == 0) continue; // if zero don't fill the particle in the output
-      npart++;
-
       //Produce
       fastjet::PseudoJet curjet( pWeight*fPFParticles_[iPart].px(), pWeight*fPFParticles_[iPart].py(), pWeight*fPFParticles_[iPart].pz(), pWeight*fPFParticles_[iPart].e());           
       curjet.set_user_index(iPart);                                                                                                                            

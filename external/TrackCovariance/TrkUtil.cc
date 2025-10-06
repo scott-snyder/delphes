@@ -577,7 +577,7 @@ Double_t TrkUtil::GetPhase(TVectorD x, TVectorD par)
 {
 	// Definitions
 	// Transverse track parameters
-	Double_t D = par(0);
+        //Double_t D = par(0);
 	Double_t phi0 = par(1);
 	Double_t sf = TMath::Sin(phi0);
 	Double_t cf = TMath::Cos(phi0);
@@ -596,7 +596,7 @@ TVectorD TrkUtil::dsdPar(TVectorD x, TVectorD par)
 	// 
 	// Definitions
 	// Transverse track parameters
-	Double_t D = par(0);
+	//Double_t D = par(0);
 	Double_t phi0 = par(1);
 	Double_t sf = TMath::Sin(phi0);
 	Double_t cf = TMath::Cos(phi0);
@@ -620,7 +620,7 @@ TVectorD TrkUtil::dsdx(TVectorD x, TVectorD par)
 	// 
 	// Definitions
 	// Transverse track parameters
-	Double_t D = par(0);
+	//Double_t D = par(0);
 	Double_t phi0 = par(1);
 	Double_t sf = TMath::Sin(phi0);
 	Double_t cf = TMath::Cos(phi0);
