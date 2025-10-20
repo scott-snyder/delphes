@@ -1,4 +1,5 @@
 include_directories(
+  ${FastJet_INCLUDE_DIRS}
   ${DelphesExternals_INCLUDE_DIR}
   ${ROOT_INCLUDE_DIRS}
 )
