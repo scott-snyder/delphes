@@ -55,18 +55,18 @@
 #include "fastjet/Selector.hh"
 #include "fastjet/tools/JetMedianBackgroundEstimator.hh"
 
-#include "fastjet/plugins/CDFCones/fastjet/CDFJetCluPlugin.hh"
-#include "fastjet/plugins/CDFCones/fastjet/CDFMidPointPlugin.hh"
-#include "fastjet/plugins/SISCone/fastjet/SISConePlugin.hh"
+#include "fastjet/CDFJetCluPlugin.hh"
+#include "fastjet/CDFMidPointPlugin.hh"
+#include "fastjet/SISConePlugin.hh"
 
-#include "fastjet/contribs/Nsubjettiness/ExtraRecombiners.hh"
-#include "fastjet/contribs/Nsubjettiness/Njettiness.hh"
-#include "fastjet/contribs/Nsubjettiness/NjettinessPlugin.hh"
-#include "fastjet/contribs/Nsubjettiness/Nsubjettiness.hh"
+#include "fastjet/contrib/ExtraRecombiners.hh"
+#include "fastjet/contrib/Njettiness.hh"
+#include "fastjet/contrib/NjettinessPlugin.hh"
+#include "fastjet/contrib/Nsubjettiness.hh"
 
-#include "fastjet/contribs/ValenciaPlugin/ValenciaPlugin.hh"
+#include "fastjet/contrib/ValenciaPlugin.hh"
 
-#include "fastjet/contribs/RecursiveTools/SoftDrop.hh"
+#include "fastjet/contrib/SoftDrop.hh"
 #include "fastjet/tools/Filter.hh"
 #include "fastjet/tools/Pruner.hh"
 
