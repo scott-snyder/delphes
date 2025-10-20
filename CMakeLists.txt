@@ -47,6 +47,10 @@ if(PYTHIA8_FOUND)
   include_directories(${PYTHIA8_INCLUDE_DIRS})
 endif()
 
+# Fastjet
+FIND_PACKAGE( ILCUTIL REQUIRED COMPONENTS ILCSOFT_CMAKE_MODULES )
+find_package(FastJet 3 REQUIRED COMPONENTS fastjetplugins fastjetcontribfragile fastjettools)
+
 if(NOT DEFINED CMAKE_INSTALL_LIBDIR)
   set(CMAKE_INSTALL_LIBDIR "lib")
 endif()
@@ -75,14 +79,13 @@ add_library(Delphes SHARED
   $<TARGET_OBJECTS:classes>
   $<TARGET_OBJECTS:modules>
   $<TARGET_OBJECTS:ExRootAnalysis>
-  $<TARGET_OBJECTS:fastjet>
   $<TARGET_OBJECTS:tcl>
   $<TARGET_OBJECTS:Hector>
   $<TARGET_OBJECTS:PUPPI>
   $<TARGET_OBJECTS:TrackCovariance>
 )
 
-target_link_libraries(Delphes PUBLIC ROOT::Core ROOT::Hist ROOT::Tree ROOT::MathCore ROOT::Physics ROOT::EG)
+target_link_libraries(Delphes PUBLIC ROOT::Core ROOT::Hist ROOT::Tree ROOT::MathCore ROOT::Physics ROOT::EG ${FastJet_LIBRARIES} ${FastJet_COMPONENT_LIBRARIES} gfortran)
 
 if(PYTHIA8_FOUND)
   target_link_libraries(Delphes PUBLIC ${PYTHIA8_LIBRARIES} ${CMAKE_DL_LIBS})

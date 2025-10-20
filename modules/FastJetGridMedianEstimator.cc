@@ -60,14 +60,14 @@
 
 #include "fastjet/tools/GridMedianBackgroundEstimator.hh"
 
-#include "fastjet/plugins/CDFCones/fastjet/CDFJetCluPlugin.hh"
-#include "fastjet/plugins/CDFCones/fastjet/CDFMidPointPlugin.hh"
-#include "fastjet/plugins/SISCone/fastjet/SISConePlugin.hh"
+#include "fastjet/CDFJetCluPlugin.hh"
+#include "fastjet/CDFMidPointPlugin.hh"
+#include "fastjet/SISConePlugin.hh"
 
-#include "fastjet/contribs/Nsubjettiness/ExtraRecombiners.hh"
-#include "fastjet/contribs/Nsubjettiness/Njettiness.hh"
-#include "fastjet/contribs/Nsubjettiness/NjettinessPlugin.hh"
-#include "fastjet/contribs/Nsubjettiness/Nsubjettiness.hh"
+#include "fastjet/contrib/ExtraRecombiners.hh"
+#include "fastjet/contrib/Njettiness.hh"
+#include "fastjet/contrib/NjettinessPlugin.hh"
+#include "fastjet/contrib/Nsubjettiness.hh"
 
 using namespace std;
 using namespace fastjet;
