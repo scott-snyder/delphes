@@ -1,0 +1,6 @@
+Bottom: 4bf56631c90998d6944b9cdc67ec764aa63d3229
+Top:    4bf56631c90998d6944b9cdc67ec764aa63d3229
+Author: sss <sss@karma>
+Date:   2025-10-20 13:54:10 -0400
+
+Use installed fastjet rather than vendoring.
