@@ -1381,12 +1381,8 @@ void SolTrack::KalmanCovT(Bool_t Res, Bool_t MS, Double_t mass)
 	Double_t *adhh = new Double_t[Nhit];	// Absolute value of phase
 	Int_t    *ihh = new Int_t[Nhit];		// true index of layer
 	//** added protection for derivative explosion
-	Double_t CosMin = TMath::Sin(TMath::Pi() / 9.);	//** Protect for derivative explosion
 	Double_t* cs = new Double_t[Nhit];		//** Cosine of angle with normal in transverse plane
 	//**
-	Int_t mTot;					// Number of measurement layers hit
-	//
-	mTot = HitList(ihh, rhh, phh, zhh);		// hit layer list
 	// Store phases
 	for(Int_t i = 0; i < Nhit; i++){
 		if(TMath::Abs(ct()) > 1.0e-3) dhh[i] = 2*C()*(zhh[i]-z0())/ct();
@@ -1518,7 +1514,6 @@ void SolTrack::KalmanCovT(Bool_t Res, Bool_t MS, Double_t mass)
 			Double_t sig = 0;		// Resolution
 			Double_t csa = 0;		// Cosine stereo angle
 			Double_t ssa = 0;		// Sine stereo angle
-			Double_t sg;			//** protected resolution
 			TVectorD Rm(5); 		// Measurement derivative
 			TMatrixD Hk(nmeai,5);	// dzk/dalpha
 			TMatrixDSym Rk(nmeai);	// Measurements covariance
