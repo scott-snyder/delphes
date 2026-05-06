@@ -1,16 +1,20 @@
 {
   "version": 5,
-  "prev": "f5a7678d3920a539a0c2913df7ba2407e018f838",
-  "head": "997f44fad98086f3997a0d3d75e89d684044afb9",
+  "prev": "fe263432dfc302fd0f03edfca94864fdc1b61d17",
+  "head": "c26a5a60750fbb6596123862b58cfdd0fa113a34",
   "applied": [
     "warn",
-    "fastjet"
+    "fastjet",
+    "symlink"
   ],
   "unapplied": [],
   "hidden": [],
   "patches": {
     "fastjet": {
       "oid": "997f44fad98086f3997a0d3d75e89d684044afb9"
+    },
+    "symlink": {
+      "oid": "c26a5a60750fbb6596123862b58cfdd0fa113a34"
     },
     "warn": {
       "oid": "d7a57edaf9587955f431805efe2d675e95bd2c17"
