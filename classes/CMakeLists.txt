@@ -30,6 +30,16 @@ endif()
 
 add_library(classes OBJECT ${sources} ClassesDict.cxx)
 
+# Needed when building in ABS_SYMLINK mode.
+# Cling tries to load the PCM file for a library in the same directory
+# as the library, after resolving symlinks.
+# But the libraries are built in the build/PACK/lib directory and the PCM
+# files in build/PACK/rootdict.  They both get symlinked in inst/lib,
+# but that doesn't help.  So put a link to the PCM in build/PACK/lib.
+add_custom_target( pcmlinkClasses
+                   COMMAND  ln -sf ${PROJECT_BINARY_DIR}/classes/libClassesDict_rdict.pcm ${PROJECT_BINARY_DIR} )
+add_dependencies( classes pcmlinkClasses )
+
 # install public headers
 install(FILES ${headers} DESTINATION include/classes)
 
