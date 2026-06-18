@@ -33,9 +33,10 @@ public:
   ExRootTreeBranch *NewBranch(const char *name, TClass *cl);
   void AddInfo(const char *name, Double_t value);
 
-  void Clear();
+  //using TObject::Clear;
+  virtual void Clear(Option_t *option ="");
   void Fill();
-  void Write();
+  virtual Int_t Write(const char *name = nullptr, Int_t option = 0, Int_t bufsize = 0);
 
 private:
   TTree *NewTree();

@@ -115,7 +115,7 @@ void MidPointAlgorithm::findStableConesFromMidPoints(std::vector<PhysicsTower>& 
 }
 
 
-void MidPointAlgorithm::iterateCone(volatile double startRapidity, volatile double startPhi, volatile double startPt,
+void MidPointAlgorithm::iterateCone(/*volatile*/ double startRapidity, /*volatile*/ double startPhi, /*volatile*/ double startPt,
 				    std::vector<PhysicsTower>& towers, std::vector<Cluster>& stableCones, bool reduceConeSize)
 {
   int nIterations = 0;
