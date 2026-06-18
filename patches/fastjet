@@ -1,6 +1,6 @@
-Bottom: 34dd390777c3a83cd7751423b77622887ff17cad
-Top:    0aef1702c4283b3a873a0a176b8716333ffcd5d4
+Bottom: aed116d027b40f33b480029c7b7e0585962bb163
+Top:    cea977d152f1441885b4667d05e2dfa533ba8db5
 Author: sss <sss@karma>
-Date:   2026-02-05 23:36:56 -0500
+Date:   2026-06-17 20:55:44 -0400
 
 Use installed fastjet rather than vendoring.
