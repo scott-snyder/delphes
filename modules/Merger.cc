@@ -81,7 +81,7 @@ void Merger::Init()
     array = ImportArray(param[i].GetString());
     iterator.reset(array->MakeIterator());
 
-    fInputList.push_back(move(iterator));
+    fInputList.push_back(std::move(iterator));
   }
 
   // create output arrays

@@ -84,7 +84,7 @@ void ConstituentFilter::Init()
     array = ImportArray(param[i].GetString());
     entry.iterator.reset(array->MakeIterator());
     entry.array = array;
-    fJetList.push_back(move(entry));
+    fJetList.push_back(std::move(entry));
   }
 
   param = GetParam("ConstituentInputArray");
@@ -96,7 +96,7 @@ void ConstituentFilter::Init()
     array = ImportArray(param[i * 2].GetString());
     entry.iterator.reset(array->MakeIterator());
     entry.array = ExportArray(param[i * 2 + 1].GetString());
-    fConstituentList.push_back(move(entry));
+    fConstituentList.push_back(std::move(entry));
   }
 }
 
