@@ -480,13 +480,13 @@ void H_BeamParticle::computePath(const H_AbstractBeamLine * beam) {
 // should be removed later, to keep only computePath(const H_AbstractBeamLine & , const bool)
 void H_BeamParticle::computePath(const H_AbstractBeamLine * beam, const bool NonLinear) {
 	TMatrixD temp_mat(MDIM,MDIM);
-	double temp_x, temp_y, temp_s, temp_tx, temp_ty;
+	double temp_x, temp_y, /*temp_s,*/ temp_tx, temp_ty;
 
 	temp_x = (positions.front())[INDEX_X];
         temp_tx = (positions.front())[INDEX_TX];
         temp_y = (positions.front())[INDEX_Y];
         temp_ty = (positions.front())[INDEX_TY];
-        temp_s = (positions.front())[INDEX_S];
+        //temp_s = (positions.front())[INDEX_S];
 
 		double vec[MDIM] = {temp_x/URAD, tan(temp_tx/URAD), temp_y/URAD, tan(temp_ty/URAD),energy,1};
 
@@ -530,13 +530,13 @@ void H_BeamParticle::computePath(const H_AbstractBeamLine * beam, const bool Non
 
 void H_BeamParticle::computePath(const H_AbstractBeamLine & beam, const bool NonLinear) {
 	TMatrixD temp_mat(MDIM,MDIM);
-	double temp_x, temp_y, temp_s, temp_tx, temp_ty;
+	double temp_x, temp_y, /*temp_s,*/ temp_tx, temp_ty;
 
 	temp_x = (positions.front())[INDEX_X];
         temp_tx = (positions.front())[INDEX_TX];
         temp_y = (positions.front())[INDEX_Y];
         temp_ty = (positions.front())[INDEX_TY];
-        temp_s = (positions.front())[INDEX_S];
+        //temp_s = (positions.front())[INDEX_S];
 
 		double vec[MDIM] = {temp_x/URAD, tan(temp_tx/URAD), temp_y/URAD, tan(temp_ty/URAD),energy,1};
 

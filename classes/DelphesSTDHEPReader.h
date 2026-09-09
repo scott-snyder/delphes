@@ -64,7 +64,7 @@ public:
 
   void SetInputFile(FILE *inputFile);
 
-  void Clear();
+  virtual void Clear(Option_t* = "");
   bool EventReady();
 
   bool ReadEvent(DelphesFactory *factory,

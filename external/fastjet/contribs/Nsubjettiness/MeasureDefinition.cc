@@ -1,7 +1,7 @@
 //  Nsubjettiness Package
 //  Questions/Comments?  jthaler@jthaler.net
 //
-//  Copyright (c) 2011-14
+//  Copyright (c) 2011-14, 25
 //  Jesse Thaler, Ken Van Tilburg, Christopher K. Vermilion, and TJ Wilkason
 //
 //  $Id: MeasureDefinition.cc 1316 2022-06-13 16:51:26Z jthaler $
@@ -547,7 +547,8 @@ std::vector<fastjet::PseudoJet> DefaultMeasure::get_one_pass_axes(int n_jets,
       fastjet::PseudoJet temp = old_axes[k].ConvertToPseudoJet();
       outputAxes.push_back(temp);
    }
-   
+
+#if 0
    // this is used to debug the minimization routine to make sure that it works.
    bool do_debug = false;
    if (do_debug) {
@@ -556,6 +557,7 @@ std::vector<fastjet::PseudoJet> DefaultMeasure::get_one_pass_axes(int n_jets,
       double outputTau = result(inputJets, outputAxes);
       assert(outputTau <= seed_tau);
    }
+#endif
    
    return outputAxes;
 }
